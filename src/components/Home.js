@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { getUserId, getUserName, logout } from '../utils/auth';
 import '../styles/Home.css';
 import Navbar from './Navbar';
+import config from '../config/config';
 
 const Home = () => {
   const [chains, setChains] = useState([]);
@@ -24,7 +25,7 @@ const Home = () => {
         setUserName(`Welcome, ${name}`);
 
         try {
-          const chainsResponse = await axios.get(`http://localhost:5000/chain/user/${userId}`);
+          const chainsResponse = await axios.get(`${config.API_URL}/chain/user/${userId}`);
           setChains(chainsResponse.data.chains || []);
         } catch (chainsError) {
           console.error('Error fetching chains:', chainsError);

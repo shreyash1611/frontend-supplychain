@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import '../styles/Profile.css';
 import Navbar from './Navbar';
+import config from '../config/config';
 
 const Profile = () => {
   const [role, setRole] = useState('');
@@ -30,7 +31,7 @@ const Profile = () => {
     try {
       if (role === 'admin') {
         // Create new chain
-        const response = await axios.post('http://localhost:5000/chain/create', {
+        const response = await axios.post(`${config.API_URL}/chain/create`, {
           name: chainName,
           userId: userId
         });
@@ -42,7 +43,7 @@ const Profile = () => {
       } else if (role === 'user') {
         // Join existing chain
         try {
-          const response = await axios.post('http://localhost:5000/chain/join', {
+          const response = await axios.post(`${config.API_URL}/chain/join`, {
             chainId,
             userId: userId
           });

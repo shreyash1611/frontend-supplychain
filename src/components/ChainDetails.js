@@ -4,6 +4,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { getUserId } from '../utils/auth';
 import '../styles/ChainDetails.css';
 import Navbar from './Navbar';
+import config from '../config/config';
 
 const ChainDetails = () => {
   const { chainId } = useParams();
@@ -26,17 +27,16 @@ const ChainDetails = () => {
         console.log(`Fetching details for chain: ${chainId}`);
         
         // Get chain details
-        const chainResponse = await axios.get(`http://localhost:5000/chain/${chainId}`);
+        const chainResponse = await axios.get(`${config.API_URL}/chain/${chainId}`);
         console.log('Chain response:', chainResponse.data);
         
         if (chainResponse.data.success) {
           setChain(chainResponse.data.chain);
           
           // Check if user is admin
-          const userChains = await axios.get(`http://localhost:5000/chain/user/${userId}`);
-          const userChain = userChains.data.chains.find(c => c.chainId === chainId);
+          const userChains = await axios.get(`${config.API_URL}/chain/user/${userId}`);
           
-          if (userChain && userChain.role === 'admin') {
+          if (userChains && userChains.role === 'admin') {
             console.log('User is admin of this chain');
             setIsAdmin(true);
           }

@@ -6,6 +6,7 @@ import '../styles/Login.css';
 import labLogo from '../styles/lablogo.png';
 import labLogoSmall from '../styles/lablogo-small.png';
 import veritasLogo from '../styles/veritas.png';
+import config from '../config/config';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -20,7 +21,7 @@ const Login = () => {
       
       console.log('Google credential received');
       
-      const response = await axios.post('http://localhost:5000/auth/login', {
+      const response = await axios.post(`${config.API_URL}/auth/login`, {
         credential: credentialResponse.credential
       });
       
