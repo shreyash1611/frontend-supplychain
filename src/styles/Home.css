@@ -1,0 +1,130 @@
+.home-container {
+    min-height: 100vh;
+    background-color: #690f9d;
+    color: #f8f9fa;
+    padding: 90px 20px 20px 20px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 40px;
+    padding: 0 20px;
+}
+
+.header h2 {
+    font-size: 2.5rem;
+    color: #f8f9fa;
+    font-family: 'Courier New', monospace;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    margin: 0;
+}
+
+.header-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.create-join-button {
+    background-color: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: #f8f9fa;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.create-join-button:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+    transform: translateY(-2px);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.logout-button {
+    background-color: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 25px;
+    padding: 10px 20px;
+    color: #f8f9fa;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+}
+
+.logout-button:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+    transform: translateY(-2px);
+}
+
+.logout-icon {
+    width: 20px;
+    height: 20px;
+}
+
+.chains-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.chain-card {
+    background-color: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 20px;
+    transition: all 0.3s ease;
+}
+
+.chain-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.chain-card h3 {
+    color: #f8f9fa;
+    margin: 0 0 15px 0;
+    font-size: 1.5rem;
+}
+
+.chain-id, .role {
+    color: rgba(255, 255, 255, 0.8);
+    margin: 5px 0;
+    font-size: 0.9rem;
+}
+
+.view-chain-button {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    padding: 8px 16px;
+    color: #f8f9fa;
+    margin-top: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.view-chain-button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.no-chains {
+    text-align: center;
+    color: #f8f9fa;
+    padding: 40px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    margin: 20px;
+}
