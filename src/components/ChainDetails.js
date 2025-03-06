@@ -24,22 +24,18 @@ const ChainDetails = () => {
           return;
         }
 
-        console.log(`Fetching details for chain: ${chainId}`);
+        console.log('Sending userId:', userId);
+        const chainResponse = await axios.get(`${config.API_URL}/chain/${chainId}`, {
+          headers: {
+            'Authorization': userId
+          }
+        });
         
-        // Get chain details
-        const chainResponse = await axios.get(`${config.API_URL}/chain/${chainId}`);
         console.log('Chain response:', chainResponse.data);
         
         if (chainResponse.data.success) {
           setChain(chainResponse.data.chain);
-          
-          // Check if user is admin
-          const userChains = await axios.get(`${config.API_URL}/chain/user/${userId}`);
-          
-          if (userChains && userChains.role === 'admin') {
-            console.log('User is admin of this chain');
-            setIsAdmin(true);
-          }
+          setIsAdmin(chainResponse.data.isAdmin);
         }
         
         setLoading(false);
